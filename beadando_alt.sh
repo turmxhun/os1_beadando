@@ -19,19 +19,19 @@ else
 fi
 }
 
-
-while getopts :asdfg opt;do
+szures()
+#Leszűri a randomPwd nevű fájlban, hogy mely jelszavak nem tartalmaznak 3-as számot
+{
+cat randomPwd.txt | grep -v 3
+}
+while getopts :adf opt;do
 	case $opt in
 		a)
-			nano ...;;
-		s)
-			nano ...;;
+			szures;;
 		d)
 			fajlLetoltes;;
 		f)
 			randomPwdGen;;
-		g)
-			valami;;
 		*)
 			echo "Ilyen nem létezik"
 		exit ;;
