@@ -22,7 +22,13 @@ fi
 szures()
 #Leszűri a randomPwd nevű fájlban, hogy mely jelszavak nem tartalmaznak 3-as számot
 {
-cat randomPwd.txt | grep -v 3
+if [ -e randomPwd.txt ]
+then
+    cat randomPwd.txt | grep -v 3
+else
+    echo "A fájl nem létezik, kérlek elsőnek használd a sudo ./beadando_alt.sh -f parancsot"
+    echo "Ezzel létrehozza a fájlt"
+fi
 }
 while getopts :adf opt;do
 	case $opt in
